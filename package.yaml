@@ -1,0 +1,53 @@
+name:                calc
+version:             0.0.0.0
+author:              "Shamaeva Elena"
+copyright:           "2020 Shamaeva Elena"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README file.
+
+dependencies:
+- base >= 4.7 && < 5
+- servant-server
+- servant
+- warp 
+- aeson
+- bytestring
+- servant-swagger-ui
+- text
+- swagger2
+- servant-swagger
+- hspec
+- hspec-wai
+- hspec-wai-json
+
+library:
+  source-dirs: src
+
+executables:
+  calc-exe: #название запускаемого файла
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -Wall
+    - -Werror
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - calc
+
+tests:
+  calc-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -Wall
+    - -Werror
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - calc
